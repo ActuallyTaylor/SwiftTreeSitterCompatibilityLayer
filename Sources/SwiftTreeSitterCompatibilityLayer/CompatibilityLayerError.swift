@@ -11,4 +11,7 @@ enum CompatibilityLayerError: LocalizedError {
     case invalidPointer(type: String)
     case childNotFound
     case invalidTSSymbol
+    case invalidTSQuantifier
+    case invalidQueryMatch
+    case invalidCapture
 }
