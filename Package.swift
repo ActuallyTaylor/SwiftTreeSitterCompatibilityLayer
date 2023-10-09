@@ -4,22 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftTreeSitterCompatibilityLayer",
+    name: "TreeSitterCompatibilityLayer",
     products: [
         .library(
-            name: "SwiftTreeSitterCompatibilityLayer",
-            targets: ["SwiftTreeSitterCompatibilityLayer"]),
+            name: "TreeSitterCompatibilityLayer",
+            targets: ["TreeSitterCompatibilityLayer"]),
     ],
     dependencies: [
         .package(url: "https://github.com/tree-sitter/tree-sitter", branch: "master")
     ],
     targets: [
         .target(
-            name: "SwiftTreeSitterCompatibilityLayer", dependencies: [
+            name: "TreeSitterCompatibilityLayer", dependencies: [
                 .product(name: "TreeSitter", package: "tree-sitter"),
             ]),
         .testTarget(
-            name: "SwiftTreeSitterCompatibilityLayerTests",
-            dependencies: ["SwiftTreeSitterCompatibilityLayer"]),
+            name: "TreeSitterCompatibilityLayerTests",
+            dependencies: ["TreeSitterCompatibilityLayer"]),
     ]
 )
