@@ -28,11 +28,9 @@ final class Query {
     init(language: Language, source: String) throws {
         var errorOffset: UInt32 = 0
         var errorType: TSQueryError = TSQueryErrorNone
-        let size = MemoryLayout.size(ofValue: TSLanguage.self)
-        
-        let languagePointer = UnsafeMutablePointer<TSLanguage>.allocate(capacity: size)
-        languagePointer.initialize(from: &language.internalLanguage, count: size)
-   
+
+        let languagePointer = language.getPointer()
+
         guard let point = ts_query_new(languagePointer, source, UInt32(source.utf8.count), &errorOffset, &errorType) else {
             throw QueryError(offset: errorOffset, internalError: InternalQueryError(queryError: errorType) ?? .none)
         }

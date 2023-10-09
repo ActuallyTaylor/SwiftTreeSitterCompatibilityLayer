@@ -14,4 +14,5 @@ enum CompatibilityLayerError: LocalizedError {
     case invalidTSQuantifier
     case invalidQueryMatch
     case invalidCapture
+    case invalidIterator
 }

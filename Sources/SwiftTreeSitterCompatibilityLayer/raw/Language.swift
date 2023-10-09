@@ -68,3 +68,13 @@ extension Language {
         return ts_language_next_state(&internalLanguage, state, symbol)
     }
 }
+
+extension Language {
+    func getPointer() -> UnsafeMutablePointer<TSLanguage> {
+        let size = MemoryLayout.size(ofValue: TSLanguage.self)
+
+        let languagePointer = UnsafeMutablePointer<TSLanguage>.allocate(capacity: size)
+        languagePointer.initialize(from: &self.internalLanguage, count: size)
+        return languagePointer
+    }
+}
