@@ -7,7 +7,7 @@
 
 import TreeSitter
 
-final class Point {
+public final class Point {
     public let row: UInt32
     public let column: UInt32
     
@@ -27,11 +27,11 @@ final class Point {
 }
 
 extension Point: Comparable {
-    static func < (lhs: Point, rhs: Point) -> Bool {
+    public static func < (lhs: Point, rhs: Point) -> Bool {
         return lhs.row < rhs.row && lhs.column < rhs.column
     }
     
-    static func == (lhs: Point, rhs: Point) -> Bool {
+    public static func == (lhs: Point, rhs: Point) -> Bool {
         return lhs.row == rhs.row && lhs.column == rhs.column
     }
 }

@@ -7,7 +7,7 @@
 
 import TreeSitter
 
-final class InputEdit {
+public final class InputEdit {
     public let startByte: UInt32
     public let oldEndByte: UInt32
     public let newEndByte: UInt32
@@ -32,5 +32,9 @@ final class InputEdit {
         self.startPoint = Point(point: inputEdit.start_point)
         self.oldEndPoint = Point(point: inputEdit.old_end_point)
         self.newEndPoint = Point(point: inputEdit.new_end_point)
+    }
+    
+    func getTSInputEdit() -> TSInputEdit {
+        return TSInputEdit(start_byte: startByte, old_end_byte: oldEndByte, new_end_byte: newEndByte, start_point: startPoint.getTSPoint(), old_end_point: oldEndPoint.getTSPoint(), new_end_point: newEndPoint.getTSPoint())
     }
 }

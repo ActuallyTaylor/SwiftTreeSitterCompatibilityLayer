@@ -7,7 +7,7 @@
 
 import TreeSitter
 
-enum SymbolType: Int {
+public enum SymbolType: Int {
     case regular = 0
     case anonymous = 1
     case auxiliary = 2

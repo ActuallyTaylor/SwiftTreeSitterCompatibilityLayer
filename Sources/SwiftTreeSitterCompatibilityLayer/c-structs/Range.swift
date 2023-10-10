@@ -7,7 +7,7 @@
 
 import TreeSitter
 
-final class Range {
+public final class Range {
     public let startPoint: Point
     public let endPoint: Point
     

@@ -14,7 +14,7 @@ public typealias TSCancellationFlag = UnsafePointer<Int>
 public final class Parser {
     private var rawParserPtr: TSParser
     
-    var language: Language {
+    public var language: Language {
         get {
             Language(internalLanguage: ts_parser_language(rawParserPtr).pointee)
         }
@@ -23,7 +23,7 @@ public final class Parser {
         }
     }
     
-    var includedRanges: [Range] {
+    public var includedRanges: [Range] {
         get {
             var count: UInt32 = 0
             let ranges = ts_parser_included_ranges(rawParserPtr, &count)
@@ -39,7 +39,7 @@ public final class Parser {
         }
     }
     
-    var timeoutMS: UInt64 {
+    public var timeoutMS: UInt64 {
         get {
             ts_parser_timeout_micros(rawParserPtr)
         }
@@ -48,7 +48,7 @@ public final class Parser {
         }
     }
     
-    var cancellationFlag: TSCancellationFlag {
+    public var cancellationFlag: TSCancellationFlag {
         get {
             ts_parser_cancellation_flag(rawParserPtr)
         }
@@ -58,7 +58,7 @@ public final class Parser {
     }
     
     #warning("Implement a wrapper for TSLogger")
-    var logger: TSLogger {
+    public var logger: TSLogger {
         get {
             ts_parser_logger(rawParserPtr)
         }
@@ -67,7 +67,7 @@ public final class Parser {
         }
     }
     
-    init(rawParserPtr: TSParser) {
+    public init(rawParserPtr: TSParser) {
         self.rawParserPtr = rawParserPtr
     }
 
@@ -77,13 +77,13 @@ public final class Parser {
 }
 
 extension Parser {
-    static func new() -> Parser {
+    public static func new() -> Parser {
         return Parser(rawParserPtr: ts_parser_new())
     }
 }
 
 extension Parser {
-    func reset() {
+    public func reset() {
         ts_parser_reset(rawParserPtr)
     }
 }
@@ -94,7 +94,7 @@ extension Parser {
 //        
 //    }
     
-    func parseString(oldTree: inout Tree?, string: inout String, encoding: InputEncoding = .utf8) throws -> Tree {
+    public func parseString(oldTree: Tree?, string: String, encoding: InputEncoding = .utf8) throws -> Tree {
         guard let cstr = string.cString(using: encoding.swiftValue) else {
             throw CompatibilityLayerError.failedToCreateCString
         }
@@ -108,7 +108,7 @@ extension Parser {
 
 extension Parser {
     @available(macOS 11.0, *)
-    func setDotGraphFileDescriptor(descriptor: FileDescriptor) {
+    public func setDotGraphFileDescriptor(descriptor: FileDescriptor) {
         ts_parser_print_dot_graphs(rawParserPtr, descriptor.rawValue)
     }
 }
