@@ -27,4 +27,8 @@ final class Range {
         self.startByte = range.start_byte
         self.endByte = range.end_byte
     }
+    
+    func getTSRange() -> TSRange {
+        return TSRange(start_point: startPoint.getTSPoint(), end_point: endPoint.getTSPoint(), start_byte: startByte, end_byte: endByte)
+    }
 }

@@ -9,7 +9,7 @@ import TreeSitter
 
 typealias TSQueryCursor = OpaquePointer
 
-final class QueryCursor {
+public final class QueryCursor {
     private var rawCursorPtr: TSQueryCursor
 
     var didExceedMatchLimit: Bool {

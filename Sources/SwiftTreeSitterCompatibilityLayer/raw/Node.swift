@@ -8,7 +8,7 @@
 import TreeSitter
 
 /// A class that wraps the underlying `TSNode` C structure provided by `TreeSitter`
-final class Node {
+public final class Node {
     /// The raw node C node that this node wraps.
     let rawNode: TSNode
     
@@ -285,7 +285,7 @@ extension Node: Equatable {
     ///   - lhs: The first node to check
     ///   - rhs: The second node to check
     /// - Returns: If the nodes are equal, true is returned,
-    static func == (lhs: Node, rhs: Node) -> Bool {
+    public static func == (lhs: Node, rhs: Node) -> Bool {
         return ts_node_eq(lhs.rawNode, rhs.rawNode)
     }
 }

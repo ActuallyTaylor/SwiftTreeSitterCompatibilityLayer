@@ -10,7 +10,7 @@ import Foundation
 
 typealias TSQuery = OpaquePointer
 
-final class Query {
+public final class Query {
     let rawQueryPtr: TSQuery?
     
     var patternCount: Int {

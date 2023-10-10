@@ -1,6 +1,6 @@
 import XCTest
 import TreeSitter
-@testable import SwiftTreeSitterCompatibilityLayer
+@testable import TreeSitterCompatibilityLayer
 
 final class SwiftTreeSitterCompatibilityLayerTests: XCTestCase {
     func testExample() throws {

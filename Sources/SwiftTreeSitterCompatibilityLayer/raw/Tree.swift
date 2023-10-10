@@ -7,16 +7,16 @@
 
 import TreeSitter
 
-typealias TSTree = OpaquePointer
+public typealias TSTree = OpaquePointer
 
 /// A wrapper over `TreeSitter`s `TSTree` structure that wraps it in memory safe swift code.
-final class Tree {
+public final class Tree {
     /// A raw pointer to the `TSTree` object on the heap. `TreeSitter` does not provide `TSTree` as a struct like it does `TSNode` so a raw pointer to the memory is needed.
     let rawTreePtr: TSTree?
     
     /// Initializes a `TreeSitterTree` with a raw pointer to the memory. If the memory is invalid, an error is thrown.
     /// - Parameter rawTreePtr: The pointer to the `TSTree` in memory.
-    init(rawTreePtr: TSTree?) throws {
+    public init(rawTreePtr: TSTree?) throws {
         guard let rawTreePtr else {
             throw CompatibilityLayerError.invalidPointer(type: "TreeSitterTree")
         }
@@ -34,11 +34,12 @@ final class Tree {
         let node = ts_tree_root_node(rawTreePtr)
         return Node(rawNode: node)
     }
-    
+}
+
+extension Tree {
     /// Copies this tree into another`TSTree`. It is necessary to copy if working on multiple threads because `TSTree` is not thread safe.
     /// - Returns: An optional pointer to the copied tree.
-    func copy() -> OpaquePointer? {
+    func copy() -> TSTree? {
         return ts_tree_copy(rawTreePtr)
     }
 }
-

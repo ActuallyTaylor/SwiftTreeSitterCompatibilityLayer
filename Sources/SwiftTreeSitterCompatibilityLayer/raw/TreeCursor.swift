@@ -7,7 +7,7 @@
 
 import TreeSitter
 
-final class TreeCursor {
+public final class TreeCursor {
     private var internalCursor: TSTreeCursor
     
     var currentNode: Node {

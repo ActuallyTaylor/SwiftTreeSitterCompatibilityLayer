@@ -7,10 +7,10 @@
 
 import TreeSitter
 
-typealias TSLookaheadIterator = OpaquePointer
+public typealias TSLookaheadIterator = OpaquePointer
 
-final class LookaheadIterator: IteratorProtocol {
-    typealias Element = TSSymbol
+public final class LookaheadIterator: IteratorProtocol {
+    public typealias Element = TSSymbol
     
     private var rawLookaheadIterator: TSLookaheadIterator
         
@@ -51,7 +51,7 @@ extension LookaheadIterator {
 }
 
 extension LookaheadIterator {
-    func next() -> TSSymbol? {
+    public func next() -> TSSymbol? {
         guard ts_lookahead_iterator_next(rawLookaheadIterator) else {
             return nil
         }

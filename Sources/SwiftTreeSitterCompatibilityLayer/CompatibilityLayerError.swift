@@ -15,4 +15,5 @@ enum CompatibilityLayerError: LocalizedError {
     case invalidQueryMatch
     case invalidCapture
     case invalidIterator
+    case failedToCreateCString
 }
