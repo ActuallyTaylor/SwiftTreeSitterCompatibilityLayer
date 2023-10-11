@@ -7,8 +7,6 @@
 
 import TreeSitter
 
-typealias TSQueryCursor = OpaquePointer
-
 public final class QueryCursor {
     private var rawCursorPtr: TSQueryCursor
 

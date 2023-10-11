@@ -11,7 +11,7 @@ public final class Point {
     public let row: UInt32
     public let column: UInt32
     
-    init(row: UInt32, column: UInt32) {
+    public init(row: UInt32, column: UInt32) {
         self.row = row
         self.column = column
     }

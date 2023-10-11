@@ -8,9 +8,6 @@
 import TreeSitter
 import System
 
-public typealias TSParser = OpaquePointer
-public typealias TSCancellationFlag = UnsafePointer<Int>
-
 public final class Parser {
     private var rawParserPtr: TSParser
     
@@ -28,6 +25,7 @@ public final class Parser {
             var count: UInt32 = 0
             let ranges = ts_parser_included_ranges(rawParserPtr, &count)
             guard let pointer = UnsafeMutableRawPointer(mutating: ranges) else {
+                #warning("Should throw instead of returning empty")
                 return []
             }
             

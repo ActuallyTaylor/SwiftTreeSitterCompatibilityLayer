@@ -16,7 +16,7 @@ public final class InputEdit {
     public let oldEndPoint: Point
     public let newEndPoint: Point
     
-    init(startByte: UInt32, oldEndByte: UInt32, newEndByte: UInt32, startPoint: Point, oldEndPoint: Point, newEndPoint: Point) {
+    public init(startByte: UInt32, oldEndByte: UInt32, newEndByte: UInt32, startPoint: Point, oldEndPoint: Point, newEndPoint: Point) {
         self.startByte = startByte
         self.oldEndByte = oldEndByte
         self.newEndByte = newEndByte

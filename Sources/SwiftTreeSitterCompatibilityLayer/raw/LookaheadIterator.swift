@@ -7,8 +7,6 @@
 
 import TreeSitter
 
-public typealias TSLookaheadIterator = OpaquePointer
-
 public final class LookaheadIterator: IteratorProtocol {
     public typealias Element = TSSymbol
     

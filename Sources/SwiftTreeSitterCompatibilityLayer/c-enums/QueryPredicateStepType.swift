@@ -24,4 +24,15 @@ enum QueryPredicateStepType: Int {
             return nil
         }
     }
+    
+    var treeSitterValue: TSQueryPredicateStepType {
+        switch self {
+        case .done:
+            return TSQueryPredicateStepTypeDone
+        case .capture:
+            return TSQueryPredicateStepTypeCapture
+        case .string:
+            return TSQueryPredicateStepTypeString
+        }
+    }
 }

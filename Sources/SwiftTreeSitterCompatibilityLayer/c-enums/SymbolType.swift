@@ -24,4 +24,15 @@ public enum SymbolType: Int {
             return nil
         }
     }
+    
+    var treeSitterValue: TSSymbolType {
+        switch self {
+        case .regular:
+            return TSSymbolTypeRegular
+        case .anonymous:
+            return TSSymbolTypeAnonymous
+        case .auxiliary:
+            return TSSymbolTypeAuxiliary
+        }
+    }
 }

@@ -11,7 +11,7 @@ final class QueryCapture {
     let node: Node
     let index: UInt32
     
-    init(node: Node, index: UInt32) {
+    public init(node: Node, index: UInt32) {
         self.node = node
         self.index = index
     }
@@ -19,5 +19,9 @@ final class QueryCapture {
     init(queryCapture: TSQueryCapture) {
         self.node = Node(rawNode: queryCapture.node)
         self.index = queryCapture.index
+    }
+    
+    func getTSQueryCapture() -> TSQueryCapture {
+        return TSQueryCapture(node: node.rawNode, index: index)
     }
 }

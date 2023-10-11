@@ -23,4 +23,8 @@ final class QueryPredicateStep {
         self.type = type
         self.valueID = predicateStep.value_id
     }
+    
+    func getTSQueryPredicateStep() -> TSQueryPredicateStep {
+        return TSQueryPredicateStep(type: type.treeSitterValue, value_id: valueID)
+    }
 }

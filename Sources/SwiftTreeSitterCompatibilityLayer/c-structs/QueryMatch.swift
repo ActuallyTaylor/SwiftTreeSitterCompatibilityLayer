@@ -13,7 +13,7 @@ final class QueryMatch {
     let captureCount: UInt16
     let captures: [QueryCapture]
     
-    init(id: UInt32, patternIndex: UInt16, captureCount: UInt16, captures: [QueryCapture]) {
+    public init(id: UInt32, patternIndex: UInt16, captureCount: UInt16, captures: [QueryCapture]) {
         self.id = id
         self.patternIndex = patternIndex
         self.captureCount = captureCount
@@ -32,12 +32,10 @@ final class QueryMatch {
         let array = pointer.toArray(to: TSQueryCapture.self, capacity: Int(captureCount))
         captures = array.compactMap{(QueryCapture(queryCapture: $0))}
     }
+    
+//    func getTSQueryMatch() -> TSQueryMatch {
+//        let pointer = UnsafePointer<TSQueryCapture>(captures.compactMap({$0.getTSQueryCapture()}))
+//        
+//        return TSQueryMatch(id: id, pattern_index: patternIndex, capture_count: captureCount, captures: pointer)
+//    }
 }
-
-extension UnsafeMutableRawPointer {
-    func toArray<T>(to type: T.Type, capacity count: Int) -> [T]{
-        let pointer = bindMemory(to: type, capacity: count)
-        return Array(UnsafeBufferPointer(start: pointer, count: count))
-    }
-}
-

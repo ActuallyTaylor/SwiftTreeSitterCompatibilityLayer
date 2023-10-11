@@ -29,6 +29,20 @@ enum Quantifier: Int {
         default:
             return nil
         }
-        
+    }
+    
+    var treeSitterValue: TSQuantifier {
+        switch self {
+        case .zero:
+            return TSQuantifierZero
+        case .zeroOrOne:
+            return TSQuantifierZeroOrOne
+        case .zeroOrMore:
+            return TSQuantifierZeroOrMore
+        case .one:
+            return TSQuantifierOne
+        case .oneOrMore:
+            return TSQuantifierOneOrMore
+        }
     }
 }

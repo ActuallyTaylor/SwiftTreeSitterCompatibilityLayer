@@ -8,8 +8,6 @@
 import TreeSitter
 import Foundation
 
-typealias TSQuery = OpaquePointer
-
 public final class Query {
     let rawQueryPtr: TSQuery?
     

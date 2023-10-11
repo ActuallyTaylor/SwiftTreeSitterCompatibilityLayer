@@ -8,8 +8,6 @@
 import TreeSitter
 import System
 
-public typealias TSTree = OpaquePointer
-
 /// A wrapper over `TreeSitter`s `TSTree` structure that wraps it in memory safe swift code.
 public final class Tree {
     /// A raw pointer to the `TSTree` object on the heap. `TreeSitter` does not provide `TSTree` as a struct like it does `TSNode` so a raw pointer to the memory is needed.
